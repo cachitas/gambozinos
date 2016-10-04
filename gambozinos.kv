@@ -1,0 +1,43 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+ScreenManager:
+    transition: FadeTransition()
+
+    MainScreen
+    BattleScreen
+
+
+<MainScreen>:
+    name: 'main'
+
+    Button:
+        text: 'Start'
+        font_size: 8
+        on_release: app.root.current = 'battle'
+
+
+<BattleScreen>:
+    name: 'battle'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Button:
+            on_release: app.root.current = 'main'
+
+        ProgressBar:
+            id: cooldown_indicator
+            value: 0
+
+
+<GambozinoWidget>:
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            text: "LABEL"
+
+        ProgressBar:
+            id: hp
+            value: 100
