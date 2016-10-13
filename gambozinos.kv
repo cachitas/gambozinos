@@ -19,15 +19,14 @@ ScreenManager:
 <BattleScreen>:
     name: 'battle'
 
-    BoxLayout:
-        orientation: 'vertical'
+    CircularButton:
+        pos_hint: {'center_x': 1, 'center_y': 0}
+        radius: '200 dp'
 
-        Button:
-            on_release: app.root.current = 'main'
-
-        ProgressBar:
-            id: cooldown_indicator
-            value: 0
+    CircularButton:
+        pos_hint: {'center_x': 1, 'center_y': 0}
+        radius: '100 dp'
+        color: 1, 0, 0
 
 
 <GambozinoWidget>:
@@ -41,3 +40,19 @@ ScreenManager:
         ProgressBar:
             id: hp
             value: 100
+
+
+<CircularButton>:
+    radius: 50
+    color: .5, .5, .5
+
+    canvas:
+        Color:
+            rgb: root.color
+
+        Ellipse:
+            pos: self.pos
+            size: 2*root.radius, 2*root.radius
+
+    size_hint: None, None
+    size: 2*root.radius, 2*root.radius
